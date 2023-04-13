@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Book Bus Ticket</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                <!-- here we will display the seat layout -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Seat Layout</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="border border-dark m-5">
+                                <span *ngFor="let n of totalSeats">
+                                    <button 
+                                        *ngIf="seatDisplay(n)=='RED'" 
+                                        type="button" 
+                                        class="btn btn-danger" 
+                                        disabled 
+                                        (click)="addToSelectedSeats(n)">
+                                        <img src="../../../assets/images/seat.png" width="30px" height="30px">
+                                    </button>
+                                    <button 
+                                        *ngIf="seatDisplay(n)=='GREEN'" 
+                                        type="button" 
+                                        class="btn btn-success"
+                                        (click)="addToSelectedSeats(n)">
+                                        <img src="../../../assets/images/seat.png" width="30px" height="30px">
+                                    </button>
+                                    <button 
+                                        *ngIf="seatDisplay(n)=='LIGHT'" 
+                                        type="button" 
+                                        class="btn btn-light"
+                                        (click)="addToSelectedSeats(n)">
+                                        <img src="../../../assets/images/seat.png" width="30px" height="30px">
+                                    </button>
+                                    <span *ngIf="n%2==0 && !(n%4==0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <div *ngIf="n%4==0"></div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                <!-- here we will display the bus information and below we will display seat selection -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Bus Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <a routerLink="/bus" class="btn btn-primary">Back to Bus List</a>
+                            <div class="card-title">Bus Name: {{ viewBus.busName }}</div>
+                            <div class="card-text">Bus ID: {{ viewBus.id }}</div>
+                            <div class="card-text">Bus Fare: {{ viewBus.busTicketFare | currency:'INR':'code'}}</div>
+                            <div class="card-text">Bus From: {{ viewBus.busFromId }}</div>
+                            <div class="card-text">Bus To: {{ viewBus.busToId }}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Seat Selection</h4>
+                        </div>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Total seats selected:</td>
+                                    <td>{{ selectedSeats.length }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Selected Seats: </td>
+                                    <td><span *ngFor="let seat of selectedSeats">
+                                        {{ seat }}, 
+                                    </span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Cost:</td>
+                                    <td>Rs. {{ totalCost() }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="card-footer">
+                            <button class="btn btn-success" (click)="reserveTickets()">Reserve tickets</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

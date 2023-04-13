@@ -94,7 +94,12 @@
         11,
         12,
         13,
-        14
+        14,
+        19,
+        23,
+        27,
+        31,
+        32
       ]
     },
     {
@@ -169,7 +174,8 @@
         26,
         27,
         28,
-        29
+        29,
+        30
       ]
     },
     {
@@ -182,7 +188,10 @@
       "id": 305,
       "busId": 102,
       "busTravelDateTime": "Wed Feb 12 2023 16:00:00",
-      "busSeatsTaken": []
+      "busSeatsTaken": [
+        19,
+        20
+      ]
     },
     {
       "id": 306,
@@ -252,6 +261,37 @@
         11,
         12,
         15
+      ]
+    },
+    {
+      "id": 505,
+      "resBusRouteId": 301,
+      "resSeatsTaken": []
+    },
+    {
+      "id": 506,
+      "resBusRouteId": 301,
+      "resSeatsTaken": [
+        19,
+        23,
+        27,
+        31,
+        32
+      ]
+    },
+    {
+      "id": 507,
+      "resBusRouteId": 305,
+      "resSeatsTaken": [
+        19,
+        20
+      ]
+    },
+    {
+      "id": 508,
+      "resBusRouteId": 303,
+      "resSeatsTaken": [
+        30
       ]
     }
   ]
